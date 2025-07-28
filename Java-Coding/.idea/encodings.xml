@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../spring-boot-many-to-many/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-one-to-many/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-boot-onetoone-mapping/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../spring-mysql/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot-mapstruct/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../springboot-security-login-thymeleaf/src/main/java" charset="UTF-8" />
+  </component>
+</project>
