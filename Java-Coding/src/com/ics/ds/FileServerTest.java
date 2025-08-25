@@ -41,9 +41,11 @@ public class FileServerTest {
             Path filePath = Path.of(baseDir, requestedPath).normalize();
 
             if (!filePath.startsWith(Path.of(baseDir))) {
-                exchange.sendResponseHeaders(403, -1); // Forbidden
+                sendBytes(exchange, 403, "Forbidden".getBytes(StandardCharsets.UTF_8), false, "text/plain");
                 return;
             }
+
+            boolean encrypt = shouldEncrypt(exchange);
 
             if (Files.exists(filePath)) {
                 if (Files.isDirectory(filePath)) {
@@ -68,30 +70,54 @@ public class FileServerTest {
                     }
 
                     html.append("</ul></body></html>");
-                    byte[] responseBytes = html.toString().getBytes();
-
-                    exchange.getResponseHeaders().add("Content-Type", "text/html");
-                    exchange.sendResponseHeaders(200, responseBytes.length);
-                    try (OutputStream os = exchange.getResponseBody()) {
-                        os.write(responseBytes);
-                    }
+                    byte[] responseBytes = html.toString().getBytes(StandardCharsets.UTF_8);
+                    sendBytes(exchange, 200, responseBytes, encrypt, "text/html");
                 } else {
                     // Serve file
                     String contentType = Files.probeContentType(filePath);
-                    exchange.getResponseHeaders().add("Content-Type", contentType != null ? contentType : "application/octet-stream");
-
                     byte[] fileBytes = Files.readAllBytes(filePath);
-                    exchange.sendResponseHeaders(200, fileBytes.length);
-                    try (OutputStream os = exchange.getResponseBody()) {
-                        os.write(fileBytes);
-                    }
+                    sendBytes(exchange, 200, fileBytes, encrypt, contentType != null ? contentType : "application/octet-stream");
                 }
             } else {
                 String notFound = "404 - File Not Found";
-                exchange.sendResponseHeaders(404, notFound.length());
-                try (OutputStream os = exchange.getResponseBody()) {
-                    os.write(notFound.getBytes());
+                sendBytes(exchange, 404, notFound.getBytes(StandardCharsets.UTF_8), encrypt, "text/plain");
+            }
+        }
+
+        private boolean shouldEncrypt(HttpExchange exchange) {
+            String header = exchange.getRequestHeaders().getFirst("X-Encrypt");
+            if (header != null && header.equalsIgnoreCase("true")) return true;
+            String query = exchange.getRequestURI().getQuery();
+            if (query != null) {
+                for (String part : query.split("&")) {
+                    int idx = part.indexOf('=');
+                    String k = idx >= 0 ? part.substring(0, idx) : part;
+                    String v = idx >= 0 ? part.substring(1 + idx) : "";
+                    if ("encrypt".equalsIgnoreCase(k) && "true".equalsIgnoreCase(v)) return true;
                 }
+            }
+            return false;
+        }
+
+        private void sendBytes(HttpExchange exchange, int status, byte[] data, boolean encrypt, String originalContentType) throws IOException {
+            byte[] out;
+            String contentType;
+            if (encrypt) {
+                String json = CryptoUtil.encryptToJson(data);
+                out = json.getBytes(StandardCharsets.UTF_8);
+                contentType = "application/json";
+                exchange.getResponseHeaders().set("X-Encrypted", "true");
+                exchange.getResponseHeaders().set("Content-Type", contentType);
+            } else {
+                out = data;
+                contentType = originalContentType != null ? originalContentType : "application/octet-stream";
+                if (contentType != null) {
+                    exchange.getResponseHeaders().set("Content-Type", contentType);
+                }
+            }
+            exchange.sendResponseHeaders(status, out.length);
+            try (OutputStream os = exchange.getResponseBody()) {
+                os.write(out);
             }
         }
     }
