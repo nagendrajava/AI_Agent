@@ -9,6 +9,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-boot-onetoone-mapping" />
       </profile>
+      <profile name="Annotation profile for spring-mysql" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
+        </processorPath>
+        <module name="spring-mysql" />
+      </profile>
       <profile name="Annotation profile for springboot-mapstruct" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -20,25 +29,6 @@
         </processorPath>
         <module name="springboot-mapstruct" />
       </profile>
-      <profile name="Annotation profile for spring-mysql" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.36/lombok-1.18.36.jar" />
-        </processorPath>
-        <module name="spring-mysql" />
-      </profile>
-      <profile name="Annotation profile for spring-boot-many-to-many" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
-        </processorPath>
-        <module name="spring-boot-many-to-many" />
-      </profile>
       <profile name="Annotation profile for springboot-security-login-thymeleaf" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -47,17 +37,20 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
         <module name="spring-boot-one-to-many" />
+        <module name="spring-boot-many-to-many" />
         <module name="springboot-security-login-thymeleaf" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring-boot-hibernate" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Java-Coding" options="--add-modules jdk.httpserver" />
-      <module name="spring-boot-hibernate" options="-parameters" />
+      <module name="auth-server" options="-parameters" />
+      <module name="auth-server.main" options="-parameters" />
+      <module name="auth-server.test" options="-parameters" />
+      <module name="java-coding-parent" options="--add-modules jdk.httpserver" />
+      <module name="resource-server" options="-parameters" />
+      <module name="resource-server.main" options="-parameters" />
+      <module name="resource-server.test" options="-parameters" />
       <module name="spring-boot-many-to-many" options="-parameters" />
       <module name="spring-boot-one-to-many" options="-parameters" />
       <module name="spring-boot-onetoone-mapping" options="-parameters" />
