@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice>
+  <!-- Not used in XSL -->
+  <PdfName>RM_Invoice_timestamp.pdf</PdfName>
+  <Header>
+    <!-- Not used in XSL -->
+    <Logo>...</Logo>
+    <Image>logos/hercYellowLogo.png</Image>
+    <Address>
+      <Line1>27500 Riverview Center Blvd</Line1>
+      <Line2>Suite 100</Line2>
+      <City>Bonita Springs</City>
+      <State>FL</State>
+      <ZipCode>34134</ZipCode>
+      <Country>USA</Country>
+      <Note>For correspondence only (no payments)</Note>
+    </Address>
+    <InvoiceType>STATEMENT OF INVOICE</InvoiceType>
+    <Customer>
+      <CustNo>1714856</CustNo>
+      <Name>Robert Test</Name>
+      <BillToAddress>
+        <Line1>LOCKLEAR BORING INC</Line1>
+        <Line2>PO BOX 770</Line2>
+        <City>CREEDMOOR</City>
+        <State>NC</State>
+        <ZipCode>27522-0770</ZipCode>
+        <Country>USA</Country>
+      </BillToAddress>
+    </Customer>
+    <RentedInfo>
+      <!-- Adding newly for One Time Payment Link generation -->
+      <Currency>USD</Currency>
+      <ACHPayment>
+        <BeneficiarysBank>Wells Fargo</BeneficiarysBank>
+        <RTNABA>121000248</RTNABA>
+        <AcctNo>4217127869</AcctNo>
+        <BeneficiarysName>Herc Rentals</BeneficiarysName>
+      </ACHPayment>
+    </RentedInfo>
+    <StatementDate>05/31/2024</StatementDate>
+  </Header>
+  <Detail>
+
+    <Invoices>
+      <Invoice>
+        <InvoiceNo>32770316028</InvoiceNo>
+        <InvoiceDate>05/22/2024</InvoiceDate>
+        <PO>12345</PO>
+        <JobLocation>3CIRCLE CHURCH FAIRHOPE</JobLocation>
+        <InvoiceAmount>$ 417.35</InvoiceAmount>
+        <Balance>$ -7.54</Balance>
+      </Invoice>
+      <Invoice>
+        <InvoiceNo>35150811001</InvoiceNo>
+        <InvoiceDate>12/11/2024</InvoiceDate>
+        <PO>123145</PO>
+        <JobLocation>3 CIRCLE CHURCH DAPHNE CAMPUS</JobLocation>
+        <InvoiceAmount>$ 1035.81</InvoiceAmount>
+        <Balance>$ 1035.81</Balance>
+      </Invoice>
+
+    </Invoices>
+    <AgingSummary>
+      <Days30>$ 1035.81</Days30>
+      <Days60>$ 0.00</Days60>
+      <Days90>$ 0.00</Days90>
+      <Days120>$ 0.00</Days120>
+      <Days121>$ -7.54</Days121>
+      <TotalDues>$ 1028.27</TotalDues>
+      <AgingNotes>Aging without payment terms</AgingNotes>
+      <DirectInquiries>
+        <Header>Please direct inquiries to:</Header>
+        <Name>IRENE DRAYTON</Name>
+        <Phone>(877) 953-8778</Phone>
+        <Email>Irene.Drayton@hercrentals.com</Email>
+      </DirectInquiries>
+      <TotalPaid></TotalPaid>
+    </AgingSummary>
+    <RentalAgreementInfo>
+      <!-- <Condition>THIS INVOICE IS SUBJECT TO THE TERMS AND CONDITIONS OF THE RENTAL AGREEMENT</Condition> -->
+      <PaymentNotes>
+        <Line1>To ensure accurate payment processing, please include a remittance with your payment.</Line1>
+        <Line2>If paying by ACH/Wire, send remittance to HercTimeChecks@hercrentals.com.</Line2>
+        <Line3>Check fraud is on the rise-making secured payments through Pro Control Next Gen is the best/safest way to makes
+          payments to Herc Rentals. To enroll please talk with your sales representative or call 1-877- 953-8778, opt 1, 1. You can
+          also visit www.HercRentals.com</Line3>
+      </PaymentNotes>
+
+    </RentalAgreementInfo>
+  </Detail>
+  <Distribution>
+    <Emails>
+      <Email>
+        <EmailTo>sureshkumar.palanisamy@infinite.com</EmailTo>
+        <EmailCC></EmailCC>
+      </Email>
+    </Emails>
+    <SnapPay>No</SnapPay>
+    <AWSS3>no</AWSS3>
+    <Filenet>no</Filenet>
+    <IFSFolder>no</IFSFolder>
+    <FiservSFTP>no</FiservSFTP>
+    <Printers>
+      <Printer>
+        <Name>Printer1</Name>
+        <Ips>
+          <Ip>192.168.1.100</Ip>
+          <Ip>192.168.1.101</Ip>
+        </Ips>
+      </Printer>
+      <Printer>
+        <Name>Printer2</Name>
+        <Ips>
+          <Ip>192.168.1.102</Ip>
+        </Ips>
+      </Printer>
+    </Printers>
+    <Faxes>
+      <Fax>
+        <Name>Fax1</Name>
+        <Numbers>
+          <Number>+1-800-555-1234</Number>
+          <Number>+1-800-555-5678</Number>
+        </Numbers>
+      </Fax>
+      <Fax>
+        <Name>Fax2</Name>
+        <Numbers>
+          <Number>+1-800-555-9101</Number>
+        </Numbers>
+      </Fax>
+    </Faxes>
+  </Distribution>
+  <WatermarkNeeded>no</WatermarkNeeded>
+  <SnapPayApiInfo>
+    <CompanyCode>1001</CompanyCode>
+    <TransactionType>A</TransactionType>
+    <PaymentMode>CC</PaymentMode>
+    <DocumentType>RI</DocumentType>
+    <DocumentCode>S</DocumentCode>
+    <FiscalYear>2025</FiscalYear>
+  </SnapPayApiInfo>
+  <MergePDFdoc>
+    <DOC>
+      <DocName>CoverLetter</DocName>
+      <MergeType>Start</MergeType>
+    </DOC>
+    <DOC>
+      <DocName>TC</DocName>
+      <MergeType>BACK</MergeType>
+    </DOC>
+    <DOC>
+      <DocName>LastPage</DocName>
+      <MergeType>Last</MergeType>
+    </DOC>
+  </MergePDFdoc>
+</Invoice>
