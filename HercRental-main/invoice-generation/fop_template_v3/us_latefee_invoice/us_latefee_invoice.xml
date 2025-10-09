@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice>
+  <PdfName>.pdf</PdfName>
+  <!-- It would be great if we could get the PDF name from you -->
+  <Header>
+    <!-- <Logo>...</Logo> - Removed as it is not being used -->
+    <Image>logos/hercYellowLogo.png</Image>
+    <!-- The image source points to the logos folder. If multiple logos are available, this tag can be used to dynamically select and display different logos. -->
+    <!-- START address section is visible below the herc rentals logo ,top left corner in Invoice -->
+    <Address>
+      <Line1>27500 Riverview Center Blvd</Line1>
+      <Line2>Suite 100</Line2>
+      <City>Bonita Springs</City>
+      <State>FL</State>
+      <ZipCode>34134</ZipCode>
+      <Country>USA</Country>
+      <Note>For correspondence only (no payments)</Note>
+    </Address>
+    <!-- END address section is visible below the herc rentals logo ,top left corner in Invoice -->
+    <InvoiceType>LATE FEE</InvoiceType>
+    <!-- Actual name of the invoice, such as Revised Rental, Full Rental, etc. -->
+    <InvoiceTitle>LATE FEE</InvoiceTitle>
+    <Customer>
+      <CustNo>1714856</CustNo>
+      <!-- Need to identify whether we need this, as the customer number is already there in Rented Info section -->
+      <Name>Robert Richardson</Name>
+      <BillToAddress>
+        <Line1>LOCKLEAR BORING INC</Line1>
+        <Line2>PO BOX 770</Line2>
+        <City>CREEDMOOR</City>
+        <State>NC</State>
+        <ZipCode>27522-0770</ZipCode>
+        <Country>USA</Country>
+      </BillToAddress>
+    </Customer>
+    <!--START::Rented Info will be visible below the barcode and in the top right corner of the invoice. -->
+    <RentedInfo>
+      <InvoiceNo>93093090</InvoiceNo>
+      <InvoiceDate>04/24/2024</InvoiceDate>
+      <InvoiceAmount>$ 4440.67</InvoiceAmount>
+      <Currency>USD</Currency>
+      <CustomerNo>1714856</CustomerNo>
+      <Terms>Due Upon Receipt</Terms>
+      <ACHPayment>
+        <BeneficiarysBank>Wells Fargo</BeneficiarysBank>
+        <RTNABA>121000248</RTNABA>
+        <AcctNo>4217127869</AcctNo>
+        <BeneficiarysName>Herc Rentals</BeneficiarysName>
+      </ACHPayment>
+      <CheckPayment>
+        <CompanyName>HERC RENTALS INC.</CompanyName>
+        <Address>
+          <Line1>P.O. Box 936257</Line1>
+          <City>Atlanta</City>
+          <State>GA</State>
+          <ZipCode>31193</ZipCode>
+        </Address>
+      </CheckPayment>
+      <OnlinePayment>
+        <Logo>logos/proControlLogo.png</Logo>
+        <Website>www.HercRentals.com</Website>
+      </OnlinePayment>
+      <PaybyPhone>
+        <Phone>877-953-8778</Phone>
+      </PaybyPhone>
+      <AmountEnclosed>$</AmountEnclosed>
+    </RentedInfo>
+    <!--END::Rented Info will be visible below the barcode and in the top right corner of the invoice. -->
+    <!-- START: This header note section will be there jnust below the Rented Info and above the Order Info Section -->
+    <HeaderNotes>To ensure accurate and timely posting, detach and send top portion with your payment</HeaderNotes>
+    <!-- END: This header note section will be there jnust below the Rented Info and above the Order Info Section -->
+  </Header>
+  <Detail>
+    <OrderInfo>
+      <InvoiceFromDate>4/15/24</InvoiceFromDate>
+      <!-- This is new tag we need for new new US Rental Invoice -->
+      <PO>25059</PO>
+      <InvoiceThruDate>4/23/24</InvoiceThruDate>
+      <!-- This is new tag we need for new  US Rental Invoice -->
+      <!-- <ResQuote>55687890</ResQuote> This tag is no longer needed in the order info section according to the new Rental Invoice. -->
+      <!--  <Customer>2896423</Customer> This tag is no longer needed in the order info section according to the new Rental Invoice. -->
+      <!--  <SalesRep>FRANK TORRES</SalesRep> This tag is no longer needed in the order info section according to the new Rental Invoice. -->
+      <OrderedBy>JIMENEZ, LUIS</OrderedBy>
+      <!--  <DeliveredBy>HERC</DeliveredBy> -->
+      <RentalStartDate>4/15/24 </RentalStartDate>
+      <!-- This is new tag we need for new  US Rental Invoice -->
+      <SignedBy>WET SIGNATURE</SignedBy>
+      <!--  <ClosedBy>PATRICK NUSS</ClosedBy> -->
+      <!-- <JobSites><JobSite>1 - LOCKLEAR BORING</JobSite></JobSites> This tag is no longer needed in the order info section according to the new US Rental Invoice. -->
+    </OrderInfo>
+    <RentalEquipment>
+      <Equipment>
+        <EquipmentQuantity>1</EquipmentQuantity>
+        <Description>EXCAVATOR 43000-49999 LBS STD REACH</Description>
+        <IC>800248125</IC>
+        <EquipmentCatClass>2402200</EquipmentCatClass>
+        <Make>VOLVO</Make>
+        <Model>EC220EL</Model>
+        <SerialNumber>311080</SerialNumber>
+        <HRSMINIMUM>8/ 833.00</HRSMINIMUM>
+        <HOUR>138.83</HOUR>
+        <DAY>833.00</DAY>
+        <WEEK>2138.00</WEEK>
+        <FOURWEEK>4937.00</FOURWEEK>
+        <AMOUNT>1666.00</AMOUNT>
+        <HoursFree>
+          <Description />
+          <HRSMINIMUM></HRSMINIMUM>
+          <HOUR />
+          <DAY>8</DAY>
+          <WEEK>40</WEEK>
+          <FOURWEEK>160</FOURWEEK>
+          <AMOUNT />
+        </HoursFree>
+        <MilesFree>
+          <Description />
+          <HRSMINIMUM>4/ 116.00</HRSMINIMUM>
+          <HOUR />
+          <DAY />
+          <WEEK>526.00</WEEK>
+          <FOURWEEK>1400.00</FOURWEEK>
+          <AMOUNT />
+        </MilesFree>
+        <HROUT>1660.250</HROUT>
+        <HRIN>1664.400</HRIN>
+        <TOTAL>4.150</TOTAL>
+        <FREE>16.000</FREE>
+        <EXCESS>0</EXCESS>
+        <HRCHG>104.125</HRCHG>
+
+        <ItemList>
+          <Item>
+            <Description>EMISSIONS &amp; ENV SURCHARGE EMISSIONS</Description>
+            <AMOUNT>32.99</AMOUNT>
+          </Item>
+          <Item>
+            <Description>RENTAL PROTECTION PLAN</Description>
+            <AMOUNT>249.90</AMOUNT>
+          </Item>
+          <Item>
+            <Description>NC HEAVY EQUIPMENT RENTAL TAX 2217999990</Description>
+            <AMOUNT>100.00</AMOUNT>
+          </Item>
+        </ItemList>
+        <DeliveryNote><![CDATA[First Call Rentals                      7547 Hedley Ave, Burnaby BC V5E 2R1     PO -                                    ****************************************CUSTOMER DAMAGED THE TIRE - WORK ORDER  TO FOLLOW                               ****************************************]]></DeliveryNote>
+      </Equipment>
+
+      <Equipment>
+        <EquipmentQuantity>1</EquipmentQuantity>
+        <Description>EXCAVATOR 43000-49999 LBS STD REACH</Description>
+        <IC>800248125</IC>
+        <EquipmentCatClass>2402200</EquipmentCatClass>
+        <Make>VOLVO</Make>
+        <Model>EC220EL</Model>
+        <SerialNumber>311080</SerialNumber>
+        <HRSMINIMUM>8/ 833.00</HRSMINIMUM>
+        <HOUR>138.83</HOUR>
+        <DAY>833.00</DAY>
+        <WEEK>2138.00</WEEK>
+        <FOURWEEK>4937.00</FOURWEEK>
+        <AMOUNT>1666.00</AMOUNT>
+        <HoursFree>
+          <Description />
+          <HRSMINIMUM></HRSMINIMUM>
+          <HOUR />
+          <DAY>8</DAY>
+          <WEEK>40</WEEK>
+          <FOURWEEK>160</FOURWEEK>
+          <AMOUNT />
+        </HoursFree>
+        <MilesFree>
+          <Description />
+          <HRSMINIMUM>4/ 116.00</HRSMINIMUM>
+          <HOUR />
+          <DAY />
+          <WEEK>526.00</WEEK>
+          <FOURWEEK>1400.00</FOURWEEK>
+          <AMOUNT />
+        </MilesFree>
+        <HROUT>1660.250</HROUT>
+        <HRIN>1664.400</HRIN>
+        <TOTAL>4.150</TOTAL>
+        <FREE>16.000</FREE>
+        <EXCESS>0</EXCESS>
+        <HRCHG>104.125</HRCHG>
+
+        <ItemList>
+          <Item>
+            <Description>EMISSIONS &amp; ENV SURCHARGE EMISSIONS</Description>
+            <AMOUNT>32.99</AMOUNT>
+          </Item>
+          <Item>
+            <Description>RENTAL PROTECTION PLAN</Description>
+            <AMOUNT>249.90</AMOUNT>
+          </Item>
+          <Item>
+            <Description>NC HEAVY EQUIPMENT RENTAL TAX 2217999990</Description>
+            <AMOUNT>100.00</AMOUNT>
+          </Item>
+        </ItemList>
+        <DeliveryNote><![CDATA[First Call Rentals                      7547 Hedley Ave, Burnaby BC V5E 2R1     PO -                                    ****************************************CUSTOMER DAMAGED THE TIRE - WORK ORDER  TO FOLLOW                               ****************************************]]></DeliveryNote>
+      </Equipment>
+    </RentalEquipment>
+    <SalesItemsList>
+      <headers>
+        <header>QTY</header>
+        <header>ITEMS</header>
+        <header>UNIT</header>
+        <header>PRICE</header>
+        <header>AMOUNT</header>
+      </headers>
+      <title>SALES ITEMS</title>
+      <itemList>
+        <Item>
+          <ItemQuantity>3.9</ItemQuantity>
+          <Description1>REFUEL</Description1>
+          <Description2>3710000001 - REFUEL SERVICE FEE - REVENU</Description2>
+          <Unit>EA</Unit>
+          <Price>8.50</Price>
+          <Amount>33.15</Amount>
+        </Item>
+        <Item>
+          <ItemQuantity>1</ItemQuantity>
+          <Description1>TRANS SRVC SURCHARGE</Description1>
+          <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+          <Unit></Unit>
+          <Price>52.25</Price>
+          <Amount>52.25</Amount>
+        </Item>
+        <Item>
+          <ItemQuantity>1</ItemQuantity>
+          <Description1>TRANS SRVC SURCHARGE</Description1>
+          <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+          <Unit></Unit>
+          <Price>52.25</Price>
+          <Amount>52.25</Amount>
+        </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item><Item>
+        <ItemQuantity>1</ItemQuantity>
+        <Description1>TRANS SRVC SURCHARGE</Description1>
+        <Description2>3710000001 - TRANS SERVICE SURCHARGE</Description2>
+        <Unit></Unit>
+        <Price>52.25</Price>
+        <Amount>52.25</Amount>
+      </Item>
+      </itemList>
+    </SalesItemsList>
+    <!-- Optional - DeliveryInstructions -->
+    <DeliveryInstructions><![CDATA[JAMES 587-920-4091 BILLED FOR FOUR WEEKS 5/17/24 THRU 6/14/24 08:30 AM
+            All amounts are in USD Dollars]]>
+    </DeliveryInstructions>
+    <RentalAgreementInfo>
+      <Condition>THIS INVOICE IS SUBJECT TO THE TERMS AND CONDITIONS OF THE RENTAL AGREEMENT</Condition>
+      <PaymentNotes>
+        <Line1>To ensure accurate payment processing, please include a remittance with your payment.</Line1>
+        <Line2>If paying by ACH/Wire, send remittance to HercTimeChecks@hercrentals.com.</Line2>
+        <Line3>Check fraud is on the rise-making secured payments through Pro Control Next Gen is the best/safest way to makes
+          payments to Herc Rentals. To enroll please talk with your sales representative or call 1-877- 953-8778, opt 1, 1. You can
+          also visit www.HercRentals.com</Line3>
+      </PaymentNotes>
+    </RentalAgreementInfo>
+    <SurchargeNotes>
+      <Line1>Effective June 2, 2025 and where permitted by law, Herc Rentals may impose a surcharge of 2% for credit card payments on charge accounts. This surcharge</Line1>
+      <Line2>	is not greater than Herc Rentals' merchant discount rate for credit card transactions and is subject to sales tax</Line2>
+    </SurchargeNotes>
+    <!--  payment History tag: -->
+    <PaymentsHistory>
+      <Transactions>
+        <Transaction>
+          <Date>12/09/2024</Date>
+          <Type>CREDIT CARD</Type>
+          <Amount>391.65</Amount>
+        </Transaction>
+        <Transaction>
+          <Date>12/09/2024</Date>
+          <Type>CREDIT CARD</Type>
+          <Amount>391.65</Amount>
+        </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>  <Transaction>
+        <Date>12/09/2024</Date>
+        <Type>CREDIT CARD</Type>
+        <Amount>391.65</Amount>
+      </Transaction>
+        <Transaction>
+          <Date>12/10/2024</Date>
+          <Type>CREDIT CARD</Type>
+          <Amount>391.65</Amount>
+        </Transaction>
+      </Transactions>
+      <PaymentModes>
+        <CardDetails>
+          <CardType>MASTERCARD</CardType>
+          <CardNumber>****SSS******4445</CardNumber>
+          <ExpirationDate>**/**</ExpirationDate>
+          <Amount>391.65</Amount>
+          <AuthorizationCode>222557772</AuthorizationCode>
+        </CardDetails>
+        <!-- Future payment modes can be added here -->
+      </PaymentModes>
+    </PaymentsHistory>
+    <ShipTo>
+      <Line1>Thank you for your business. Payment is due within 30 days</Line1>
+      <Line2>from invoice date. Please advise we have charged you 1.08%</Line2>
+      <Line3>on the past due balance on your account.</Line3>
+      <State>SC</State>
+      <ZipCode>29577</ZipCode>
+      <Phone>719-440-2597</Phone>
+    </ShipTo>
+    <RentedFrom>
+      <CompanyName>HERC RENTALS 326</CompanyName>
+      <Line1>5935 MARKET STREET (RT 17)</Line1>
+      <Line2></Line2>
+      <City>WILMINGTON</City>
+      <State>NC</State>
+      <ZipCode>28405</ZipCode>
+      <Phone>910-799-9751</Phone>
+      <SalesRep>CHUCK TURNER</SalesRep>
+    </RentedFrom>
+    <!--    <Rental_Details><Days>30</Days><Hours>9.08</Hours><InvoiceFromDate>4/15/24</InvoiceFromDate><InvoiceFromTime>8:01</InvoiceFromTime><InvoiceToDate>4/23/24</InvoiceToDate><InvoiceToTime>17:05</InvoiceToTime><RentalStartDate>3/18/24</RentalStartDate><RentalStartTime>8:00</RentalStartTime></Rental_Details>Showing Rental Details below to the paymnet section in tabular format and refering InvoiceFromDate,InvoiceToDate,RentalStartDate,PO(we have seperate tag for the same) -->
+    <subtotal>
+      <Original>1666.00</Original>
+      <Adjustment></Adjustment>
+      <Total>1666.00</Total>
+    </subtotal>
+    <OtherCharges>
+      <Original></Original>
+      <Adjustment></Adjustment>
+      <Total></Total>
+    </OtherCharges>
+    <RentalProtection>
+      <Original>249.90</Original>
+      <Adjustment></Adjustment>
+      <Total>249.90</Total>
+    </RentalProtection>
+    <ProtectionFuelCharges>
+      <Original>33.15</Original>
+      <Adjustment></Adjustment>
+      <Total>33.15</Total>
+    </ProtectionFuelCharges>
+    <DeliveryPickupCharges>
+      <Original>550.00</Original>
+      <Adjustment></Adjustment>
+      <Total>550.00</Total>
+    </DeliveryPickupCharges>
+    <DeliveryCharges>
+      <Original>525.00</Original>
+      <Adjustment></Adjustment>
+      <Total>525.00</Total>
+    </DeliveryCharges>
+    <total>
+      <Original>2086.54</Original>
+      <Adjustment></Adjustment>
+      <Total>2086.54</Total>
+    </total>
+    <Tax>
+      <Original>179.97</Original>
+      <Adjustment></Adjustment>
+      <Total>179.97</Total>
+    </Tax>
+    <TotalCharges>
+      <Original>2816.51</Original>
+      <Adjustment></Adjustment>
+      <Total>2816.51</Total>
+    </TotalCharges>
+  </Detail>
+  <Footer>
+    <!-- <CustomerNo>2896423</CustomerNo> - This tag is no longer needed for footer part for new rental invoices hence moving to rentedInfo section -->
+    <legacy></legacy>
+    <!-- New tag in footer section for new renatal invoices for US -->
+    <ResOrQuoteNo>55687890</ResOrQuoteNo>
+    <!-- <InvoiceDate>04/24/2024</InvoiceDate> - This tag is no longer needed for footer part for new rental invoices and already there in rentedInfo section -->
+  </Footer>
+  <Distribution>
+    <Emails>
+      <Email>
+        <EmailTo>anant.gupta@infinite.com</EmailTo>
+        <EmailCC>hariharan.ravibabu2@infinite.com</EmailCC>
+      </Email>
+      <Email>
+        <EmailTo>madhav.madhav@infinite.com</EmailTo>
+        <EmailCC>madhav.madhav@infinite.com</EmailCC>
+      </Email>
+    </Emails>
+    <SnapPay>no</SnapPay>
+    <AWSS3>no</AWSS3>
+    <Filenet>no</Filenet>
+    <IFSFolder>no</IFSFolder>
+    <FiservSFTP>no</FiservSFTP>
+    <Printers>
+      <Printer>
+        <Name>Printer1</Name>
+        <Ips>
+          <Ip>192.168.1.100</Ip>
+          <Ip>192.168.1.101</Ip>
+        </Ips>
+      </Printer>
+      <Printer>
+        <Name>Printer2</Name>
+        <Ips>
+          <Ip>192.168.1.102</Ip>
+        </Ips>
+      </Printer>
+    </Printers>
+    <Faxes>
+      <Fax>
+        <Name>Fax1</Name>
+        <Numbers>
+          <Number>+1-800-555-1234</Number>
+          <Number>+1-800-555-5678</Number>
+        </Numbers>
+      </Fax>
+      <Fax>
+        <Name>Fax2</Name>
+        <Numbers>
+          <Number>+1-800-555-9101</Number>
+        </Numbers>
+      </Fax>
+    </Faxes>
+  </Distribution>
+  <WatermarkNeeded>no</WatermarkNeeded>
+  <!-- This is the new tag -->
+  <SnapPayApiInfo>
+    <CompanyCode>1001</CompanyCode>
+    <TransactionType>A</TransactionType>
+    <PaymentMode>CC</PaymentMode>
+    <DocumentType>RI</DocumentType>
+    <DocumentCode>I</DocumentCode>
+    <FiscalYear>2025</FiscalYear>
+  </SnapPayApiInfo>
+  <MergePDFdoc>
+    <DOC>
+      <DocName>CoverLetter</DocName>
+      <MergeType>Start</MergeType>
+    </DOC>
+    <DOC>
+      <DocName>TC</DocName>
+      <MergeType>BACK</MergeType>
+    </DOC>
+    <DOC>
+      <DocName>LastPage</DocName>
+      <MergeType>Last</MergeType>
+    </DOC>
+  </MergePDFdoc>
+</Invoice>
