@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: nagendrajava
+      MYSQL_DATABASE: test
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: on-failure
+
+  springboot-app:
+    build: .
+    container_name: springboot-app-container
+    depends_on:
+      - mysql-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/test?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: nagendrajava
+    ports:
+      - "8080:8080"
+    restart: on-failure
+
+volumes:
+  mysql_data:
