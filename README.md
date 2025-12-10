@@ -1,143 +1,208 @@
-# Herc Rentals Invoice Generation
+# springboot-mapstruct
 
-A Spring Boot application that generates PDF invoices from XML input files using Apache FOP and distributes them through multiple channels.
+"Simplify DTO to Entity mapping with speed and type safety."
 
-## Overview
+MapStruct is a Java annotation processor that generates type-safe and performant mappers for bean-to-bean conversion. If you’re building REST APIs with Spring Boot and want to keep your service layer free of boilerplate mapping logic — MapStruct is your best friend.
 
-This application processes XML invoices by transforming them into PDF format using XSLT templates and Apache FOP. The generated invoices are then distributed through various endpoints including email, SnapPay, Amazon S3, SFTP, fax, printer, and FileNet.
+This project demonstrates a minimal, real-world example using:
+- Spring Boot
+- MapStruct
+- DTO → Entity → DTO conversion
+- REST APIs
 
-## Features
+📂 Full working example: https://github.com/nagendrajava/AI_Agent/tree/master/springboot-mapstruct
 
-- XML to PDF invoice generation using Apache FOP
-- Two generation methods:
-  - S3-triggered batch processing via Lambda
-  - Real-time API for instant generation
-- XSLT template-based transformation
-- Multi-channel distribution support:
-  - Email
-  - SnapPay
-  - Amazon S3
-  - SFTP
-  - Fax
-  - Printer
-  - FileNet
-  - RM IFS
-- Automatic retry mechanism for failed distributions
-- Comprehensive audit logging in MySQL
-- Multiple XSLT template versions support
+---
 
-## Prerequisites
+## Why MapStruct?
 
-- JDK 17 or higher
-- Maven 3.6+
-- MySQL 8.0+
-- SMTP server configuration (for email distribution)
-- AWS credentials (for S3 distribution)
-- SFTP server access
+In traditional projects, mapping between DTOs and Entities requires a lot of repetitive code. MapStruct helps by providing:
 
-## Configuration
+- No manual setter/getter boilerplate
+- Compile-time checked mappings (type safety)
+- High performance (annotation-processor based, no reflection)
 
-The application can be configured through `application.properties`:
+---
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/hercrentals
-spring.datasource.username=your-username
-spring.datasource.password=your-password
-spring.jpa.hibernate.ddl-auto=update
-  
-# Add other configuration properties for different distribution channels
+## Project Overview
+
+Key components in this example:
+- `User` (JPA Entity)
+- `UserDTO` (Data Transfer Object)
+- `UserMapper` (MapStruct @Mapper interface)
+- `UserService` (business logic)
+- `UserController` (REST endpoints)
+
+---
+
+## Step-by-Step
+
+### 1) Entity — `User.java`
+```java
+@Entity
+public class User {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String name;
+    private String email;
+
+    // getters and setters
+}
 ```
 
-## Getting Started
+### 2) DTO — `UserDTO.java`
+```java
+public class UserDTO {
+    private String name;
+    private String email;
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SSudeer-Infinite/HercRental.git
-   ```
- 
-2. Navigate to the project directory:
-   ```bash
-   cd invoice-generation
-   ```
-
-3. Build the project:
-   ```bash
-   mvn clean install
-   ```
-
-4. Run the application:
-   ```bash
-   mvn spring-boot:run
-   ```
-   
-## Usage
-
-### Batch Processing via AWS S3
-
-The batch processing workflow:
-
-1. Upload XML files to S3:
-   - Bucket: `${S3_INPUT_BUCKET}`
-   - Folder: `input_xml/`
-
-2. AWS Lambda Trigger:
-   - Automatically triggered when files are uploaded to the input folder
-   - Invokes the Real-time API for each XML file
-   - Monitors processing status
-   - Moves unprocessed files into rejected folder in the AWS S3
-
-### Real-time API
-
-REST API endpoint for real-time invoice generation:
-The application will:
-   - Validate input XML fields against the predefined schema
-   - Transform XML to PDF using Apache FOP and appropriate XSLT template
-   - Distribute the generated PDF through configured channels
-   - Automatically retries for failed distribution
-   - Log all operations in the audit database
-
-```bash
-POST /api/invoices/generate
-Content-Type: application/xml
-
-POST /api/v3/invoices/generate
-Content-Type: application/xml
+    // getters and setters
+}
 ```
 
-## Distribution Process
-
-1. **AWS S3**: Upload the generarted PDF into AWS S3 on demand
-2. **Email**: Send email with the generated PDF and One Time Payment Link
-3. **SnapPay**: Upload the generated PDF into Fiserv SnapPay
-4. **SFTP**: Upload the generated PDF into Fiserv Prisma SFTP for printing
-5. **FTP**: Upload the generated PDF into FTP folder
-6. **Filenet**: Upload the generated PDF into Filenet system
-7. **RM IFS**: Upload the generated PDF into RM IFS folder
-8. **Fax**: Sending generated PDF via Fax
-9. **Printing**: Printing the generated PDF instore
-
-## Audit Logging
-
-The application maintains detailed audit logs for:
-- XML field validation
-- PDF generation status
-- Distribution status, etc
-
-**Tables:**
-
-Added create table script at **schema.sql** under resource
-```bash
-invoice_audit_log
-invoice_processing_audit_log
+### 3) Mapper — `UserMapper.java`
+```java
+@Mapper(componentModel = "spring")
+public interface UserMapper {
+    UserDTO toDto(User user);
+    User toEntity(UserDTO userDto);
+}
 ```
 
-## Error Handling
+When you compile the project, MapStruct generates an implementation (e.g. `UserMapperImpl`) automatically.
 
-- Automatic retry for failed distributions
-- Detailed error logging
-- Error notifications through API response
+### 4) Service — `UserService.java`
+```java
+@Service
+public class UserService {
+    @Autowired
+    private UserRepository userRepository;
 
-## Template Versions
+    @Autowired
+    private UserMapper userMapper;
 
-- **fop-template**: Initial template version
-- **fop_template_v3**: Latest template version with new format changes
+    public UserDTO save(UserDTO userDto) {
+        User user = userMapper.toEntity(userDto);
+        return userMapper.toDto(userRepository.save(user));
+    }
+
+    public List<UserDTO> getAll() {
+        return userRepository.findAll()
+                             .stream()
+                             .map(userMapper::toDto)
+                             .collect(Collectors.toList());
+    }
+}
+```
+
+### 5) Controller — `UserController.java`
+```java
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+    @Autowired
+    private UserService userService;
+
+    @PostMapping
+    public ResponseEntity<UserDTO> create(@RequestBody UserDTO userDto) {
+        return ResponseEntity.ok(userService.save(userDto));
+    }
+
+    @GetMapping
+    public List<UserDTO> getAllUsers() {
+        return userService.getAll();
+    }
+}
+```
+
+---
+
+## Maven Configuration
+
+Add MapStruct and the processor to your `pom.xml`:
+
+```xml
+<dependencies>
+    <!-- MapStruct -->
+    <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>1.5.5.Final</version>
+    </dependency>
+</dependencies>
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <source>17</source>
+                <target>17</target>
+                <annotationProcessorPaths>
+                    <path>
+                        <groupId>org.mapstruct</groupId>
+                        <artifactId>mapstruct-processor</artifactId>
+                        <version>1.5.5.Final</version>
+                    </path>
+                </annotationProcessorPaths>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
+
+---
+
+## Run & Test the API
+
+Start the Spring Boot application and test endpoints (e.g., with curl or Postman).
+
+POST /api/users
+```json
+{ "name": "Nagendra", "email": "nagendra@example.com" }
+```
+
+GET /api/users
+```json
+[ { "name": "Nagendra", "email": "nagendra@example.com" } ]
+```
+
+---
+
+## Benefits of Using MapStruct
+
+- Fast performance (no reflection)
+- Type safety at compile time
+- Less boilerplate mapping code
+- Seamless Spring integration (`@Mapper(componentModel = "spring")`)
+
+---
+
+## Contributing
+
+Contributions, issues and feature requests are welcome. Feel free to open a PR or an issue in the repository.
+
+---
+
+## Links
+
+- Repository: https://github.com/nagendrajava/AI_Agent/tree/master/springboot-mapstruct
+
+---
+
+## License
+
+See the repository `LICENSE` file for license details.
+
+---
+
+If you want, I can also:
+- Add a full `pom.xml` and example `application.properties`
+- Provide unit tests for the mapper
+- Show how to map nested objects and collections with MapStruct
+
+Enjoy — and happy mapping! 🚀
+```
