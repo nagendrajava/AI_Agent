@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect Test Page</title>
+</head>
+<body>
+    <h2>Test Redirect</h2>
+    <form action="/redirect" method="POST">
+        <label for="returnUrl">Return URL:</label>
+        <input type="text" id="returnUrl" name="returnUrl" required value="https://example.com/success"><br><br>
+        
+        <label for="errorUrl">Error URL:</label>
+        <input type="text" id="errorUrl" name="errorUrl" required value="https://example.com/error"><br><br>
+
+        <label for="sessionToken">Session Token:</label>
+        <input type="text" id="sessionToken" name="sessionToken" required value="testToken123"><br><br>
+
+        <button type="submit">Test Redirect</button>
+    </form>
+</body>
+</html>

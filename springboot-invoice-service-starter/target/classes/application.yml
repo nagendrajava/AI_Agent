@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+chassis:
+  logging:
+    enabled: true
+  auth:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

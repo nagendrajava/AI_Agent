@@ -1,0 +1,33 @@
+﻿spring:
+  application:
+    name: spring-boot-oauth2
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          # Configure one of the following when oauth2.enabled=true
+          # issuer-uri: https://YOUR_ISSUER/.well-known/openid-configuration
+          # OR
+          # jwk-set-uri: https://YOUR_DOMAIN/.well-known/jwks.json
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+# Feature toggle: when true, /api/** requires a valid JWT (Resource Server mode)
+# when false (default), all endpoints are permitted to simplify local startup
+oauth2:
+  enabled: false
+
+logging:
+  level:
+    org.springframework.security: INFO
